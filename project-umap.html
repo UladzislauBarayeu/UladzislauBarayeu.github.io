@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Manifolds & UMAP Pipeline | Uladzislau Barayeu</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-main: #e5e5e5;
+            --text-muted: #a3a3a3;
+            --accent: #ffffff;
+            --border: #262626;
+            --hover-bg: #171717;
+            --button-bg: #1f1f1f;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            padding: 2rem 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .back-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid transparent;
+        }
+
+        .back-link:hover {
+            border-bottom-color: var(--text-muted);
+        }
+
+        .project-header {
+            margin-bottom: 4rem;
+        }
+
+        h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-top: 0;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            background-color: var(--button-bg);
+            color: var(--accent);
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--hover-bg);
+            border-color: var(--text-muted);
+        }
+
+        .article-section {
+            margin-bottom: 4rem;
+        }
+
+        .article-section h3 {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        .article-section p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .figure-placeholder {
+            background-color: var(--hover-bg);
+            border: 1px dashed var(--border);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 450px;
+            color: var(--text-muted);
+            margin: 2.5rem 0;
+            padding: 1rem;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .figure-caption {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cv.html">CV</a>
+        <a href="mailto:baraewlad@gmail.com">Contact</a>
+        <a href="https://github.com/UladzislauBarayeu" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/uladzislau-barayeu-984861241/" target="_blank">LinkedIn</a>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Selected Works</a>
+
+        <div class="project-header">
+            <h1>Neural Manifolds & Representational Dynamics</h1>
+            <p class="subtitle">Prefrontal representations can specialize rather than generalize with experience</p>
+
+            <div class="button-group">
+                <a href="https://github.com/UladzislauBarayeu/Representational_Dynamics_demo" target="_blank"
+                    class="btn">View Source Code (GitHub)</a>
+                <a href="https://www.biorxiv.org/content/10.64898/2026.03.27.714523v2.full" target="_blank"
+                    class="btn">Read Preprint (bioRxiv)</a>
+            </div>
+        </div>
+
+        <div class="article-section">
+            <h3>The Core Problem</h3>
+            <p>The hippocampus and medial prefrontal cortex (mPFC) coordinate their activity to support spatial memory
+                and goal-directed navigation. Current models of systems consolidation, such as the Complementary
+                Learning Systems (CLS) framework, assume that the mPFC extracts abstract, statistical invariants across
+                repeated experiences to build generalized schemas. However, it remains largely unknown how the cortex
+                maintains task specificity when behavioral goals demand the precise differentiation of spatial features.
+            </p>
+            <p>To investigate this, we recorded population activity from CA1 and the mPFC as rats trained on radial maze
+                tasks over several weeks. Our central hypothesis was that the mPFC undergoes a slow,
+                experience-dependent reorganization of its population geometry—shifting from generalized tracking to
+                highly specific spatial coding based on behavioral utility.</p>
+        </div>
+
+        <div class="article-section">
+            <h3>Methodology & Behavioral Paradigms</h3>
+            <p>The analysis pipeline relies on high-density single-unit extracellular recordings utilizing both
+                Neuropixels probes and custom 32-tetrode microdrives. The datasets capture behavior across two distinct
+                tasks:</p>
+            <p><strong>1. Spatial Reference and Working Memory (SRW) Task:</strong> Rats collected rewards from three
+                fixed arms, transitioning from initial exploration to near-optimal performance within days.</p>
+            <p><strong>2. Cue-Guided Association (CGA) Task:</strong> A highly demanding cognitive task requiring
+                animals to utilize the identity of a food cue in a start arm to deduce the location of a baited arm
+                elsewhere on the maze.</p>
+
+            <div class="figure-placeholder">
+                [ Insert Figure 1 Here: SVG/PNG export from Adobe Illustrator ]
+                <div class="figure-caption">Figure 1: Behavioral paradigms (CGA and SRW) and arm-related spatial tuning
+                    of CA1 and mPFC pyramidal cells.</div>
+            </div>
+
+            <p>We tracked population activity by embedding the high-dimensional spike-count vectors into a
+                low-dimensional manifold using Uniform Manifold Approximation and Projection (UMAP). This continuous
+                temporal mapping allowed us to directly quantify how smoothly task features—such as arm identity and
+                trial progression—were organized topologically across the embedding space.</p>
+        </div>
+
+        <div class="article-section">
+            <h3>Manifold Evolution & Visual Interpretations</h3>
+            <p>Our initial findings showed that early in the training process, low-dimensional mPFC manifolds primarily
+                tracked session progression and temporal context, exhibiting significant within-session drift. The mPFC
+                generalized the task structure, demonstrating overlapping representations for distinct physical arms.
+            </p>
+            <p>However, as animals gained task familiarity, this geometry shifted dramatically. The temporal tracking
+                alignment weakened, and the mPFC manifolds began to clearly differentiate specific arms, mirroring the
+                distinct spatial representations traditionally seen in the hippocampus. We quantified this shift using a
+                bias-corrected Structure Index (SI) and cross-validated k-nearest-neighbor (KNN) decoders.</p>
+
+            <div class="figure-placeholder">
+                [ Insert Figure 2 & 3 Here: Plotly UMAP Embeddings ]
+                <div class="figure-caption">Figure 2 & 3: 3D UMAP projections of mPFC neural activity transitioning from
+                    temporal tracking to discrete spatial coding.</div>
+            </div>
+
+            <p>By assessing data from a strategy-shifting plus-maze task, we further confirmed that this arm
+                discriminability was selectively enhanced only at locations requiring spatial choices, and remained
+                generalized when such demands were absent.</p>
+        </div>
+
+        <div class="article-section">
+            <h3>Implications for BCI & Systems Neuroscience</h3>
+            <p>These findings demonstrate that systems consolidation does not uniformly promote cortical generalization.
+                Instead, the mPFC dynamically refines its representations in response to specific task constraints. The
+                initial encoding of temporal progression may signify active strategy exploration, while the subsequent
+                compression into spatial task variables marks the transition to an optimized, stable execution schema.
+            </p>
+            <p>For the brain-computer interface (BCI) industry and future applied neurotechnology, these
+                representational dynamics are critical. They suggest that stable, long-term neural decoders must account
+                for the intrinsic geometric drift that occurs naturally as an underlying biological network transitions
+                from learning a task to mastering it.</p>
+        </div>
+
+    </div>
+</body>
+
+</html>

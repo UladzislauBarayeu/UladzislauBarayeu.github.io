@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae | Uladzislau Barayeu</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-main: #e5e5e5;
+            --text-muted: #a3a3a3;
+            --accent: #ffffff;
+            --border: #262626;
+            --hover-bg: #171717;
+            --button-bg: #1f1f1f;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            padding: 2rem 4rem;
+            max-width: 900px;
+            margin: 0 auto;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .page-header {
+            margin-bottom: 4rem;
+        }
+
+        h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-top: 0;
+        }
+
+        .btn-download {
+            display: inline-block;
+            background-color: var(--button-bg);
+            color: var(--accent);
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            margin-top: 1.5rem;
+        }
+
+        .btn-download:hover {
+            background-color: var(--hover-bg);
+            border-color: var(--text-muted);
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .skill-category h4 {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        .skill-category p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        /* Timeline Layout */
+        .timeline-item {
+            display: flex;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-dates {
+            width: 150px;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding-top: 0.2rem;
+        }
+
+        .timeline-content {
+            flex-grow: 1;
+            padding-left: 2rem;
+            border-left: 1px solid var(--border);
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin: 0 0 0.3rem 0;
+            font-weight: 500;
+        }
+
+        .timeline-subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin: 0 0 0.8rem 0;
+            font-style: italic;
+        }
+
+        .timeline-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            .timeline-item {
+                flex-direction: column;
+            }
+
+            .timeline-dates {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+
+            .timeline-content {
+                padding-left: 0;
+                border-left: none;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cv.html" style="color: var(--accent);">CV</a>
+        <a href="mailto:baraewlad@gmail.com">Contact</a>
+        <a href="https://github.com/UladzislauBarayeu" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/uladzislau-barayeu-984861241/" target="_blank">LinkedIn</a>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Curriculum Vitae</h1>
+            <p class="subtitle">Computational Neuroscientist & Data Engineer</p>
+            <a href="Profile.pdf" target="_blank" class="btn-download">Download Full CV (PDF)</a>
+        </div>
+
+        <div class="section-label">Technical Arsenal</div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4>Languages & Core</h4>
+                <p>Python (Data Science & Analytics)<br>MATLAB<br>Git & GitHub Version Control</p>
+            </div>
+            <div class="skill-category">
+                <h4>Analysis & Machine Learning</h4>
+                <p>Scikit-learn, TensorFlow<br>UMAP & Dimensionality Reduction<br>Kilosort4, SpikeInterface</p>
+            </div>
+            <div class="skill-category">
+                <h4>Hardware & Systems</h4>
+                <p>Open Ephys<br>Intan RHD USB Interface Systems<br>Linux / WSL2</p>
+            </div>
+            <div class="skill-category">
+                <h4>Design & Communication</h4>
+                <p>Adobe Illustrator (Scientific Figures)<br>Jupyter Notebooks<br>Academic Publishing</p>
+            </div>
+        </div>
+
+        <div class="section-label">Experience</div>
+
+        <div class="timeline-item">
+            <div class="timeline-dates">May 2021 – Present</div>
+            <div class="timeline-content">
+                <h3 class="timeline-title">PhD Researcher in Neuroscience</h3>
+                <p class="timeline-subtitle">Institute of Science and Technology Austria (Csicsvari Lab)</p>
+                <p class="timeline-desc">Investigating systems neuroscience by applying advanced data science and
+                    machine learning methods to large-scale in-vivo electrophysiological recordings. Developing scalable
+                    software architectures for neural manifold analysis and hardware integration for dual-region (HPC
+                    and mPFC) recordings.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dates">Feb 2021 – May 2021</div>
+            <div class="timeline-content">
+                <h3 class="timeline-title">Rotation Student</h3>
+                <p class="timeline-subtitle">Institute of Science and Technology Austria (Jösch Lab)</p>
+                <p class="timeline-desc">Designed and executed calcium imaging experiments in the superior colliculus,
+                    paired with advanced data analysis techniques in neuroethology.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dates">Dec 2020 – Feb 2021</div>
+            <div class="timeline-content">
+                <h3 class="timeline-title">Rotation Student</h3>
+                <p class="timeline-subtitle">Institute of Science and Technology Austria (Barton Lab)</p>
+                <p class="timeline-desc">Applied machine learning methodologies and structural data analysis to
+                    large-scale evolutionary genetic datasets.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dates">2018 – 2019</div>
+            <div class="timeline-content">
+                <h3 class="timeline-title">Research Intern</h3>
+                <p class="timeline-subtitle">Institute of Science and Technology Austria (Csicsvari Lab)</p>
+                <p class="timeline-desc">Analyzed functional connectivity between the prefrontal cortex and hippocampus.
+                    Processed electrophysiological data acquired during complex optogenetic manipulations.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dates">Feb 2018 – May 2018</div>
+            <div class="timeline-content">
+                <h3 class="timeline-title">Research Intern</h3>
+                <p class="timeline-subtitle">KU Leuven, Department of Neuroscience (Van Hulle Lab)</p>
+                <p class="timeline-desc">Conducted comprehensive human EEG data analysis focusing on neuro- and
+                    psychophysiology.</p>
+            </div>
+        </div>
+
+        <div class="section-label">Education</div>
+
+        <div class="timeline-item">
+            <div class="timeline-dates">Sep 2020 – Dec 2026</div>
+            <div class="timeline-content">
+                <h3 class="timeline-title">Doctor of Philosophy, Neuroscience</h3>
+                <p class="timeline-subtitle">Institute of Science and Technology Austria</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dates">Sep 2015 – Jul 2020</div>
+            <div class="timeline-content">
+                <h3 class="timeline-title">Diploma, Department of Biophysics</h3>
+                <p class="timeline-subtitle">Belarusian State University, Faculty of Physics</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dates">Sep 2015 – Sep 2016</div>
+            <div class="timeline-content">
+                <h3 class="timeline-title">Additional Training</h3>
+                <p class="timeline-subtitle">Belarusian State University, Faculty of Applied Mathematics and Computer
+                    Science</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

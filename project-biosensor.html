@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EEG-Based Authentication | Uladzislau Barayeu</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-main: #e5e5e5;
+            --text-muted: #a3a3a3;
+            --accent: #ffffff;
+            --border: #262626;
+            --hover-bg: #171717;
+            --button-bg: #1f1f1f;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            padding: 2rem 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .back-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid transparent;
+        }
+
+        .back-link:hover {
+            border-bottom-color: var(--text-muted);
+        }
+
+        .project-header {
+            margin-bottom: 4rem;
+        }
+
+        h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-top: 0;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            background-color: var(--button-bg);
+            color: var(--accent);
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--hover-bg);
+            border-color: var(--text-muted);
+        }
+
+        .article-section {
+            margin-bottom: 4rem;
+        }
+
+        .article-section h3 {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        .article-section p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .article-section ul {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            padding-left: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .figure-placeholder {
+            background-color: var(--hover-bg);
+            border: 1px dashed var(--border);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 350px;
+            color: var(--text-muted);
+            margin: 2.5rem 0;
+            padding: 1rem;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .figure-caption {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cv.html">CV</a>
+        <a href="mailto:baraewlad@gmail.com">Contact</a>
+        <a href="https://github.com/UladzislauBarayeu" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/uladzislau-barayeu-984861241/" target="_blank">LinkedIn</a>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Selected Works</a>
+
+        <div class="project-header">
+            <h1>Robust EEG-Based Authentication</h1>
+            <p class="subtitle">Single-Trial Classification using a 2-Stage Classifier Architecture (Biosensors, 2020)
+            </p>
+
+            <div class="button-group">
+                <a href="https://github.com/UladzislauBarayeu/biosensors-868443" target="_blank" class="btn">View Source
+                    Code (GitHub)</a>
+                <a href="https://www.mdpi.com/2079-6374/10/9/124" target="_blank" class="btn">Read Publication
+                    (Biosensors)</a>
+            </div>
+        </div>
+
+        <div class="article-section">
+            <h3>The Biometric Security Challenge</h3>
+            <p>As the risk of unauthorized personal data exposure grows, biometric authentication offers a highly secure
+                alternative to traditional passwords. Biometric authentication using electroencephalography (EEG)
+                signals relies on the subject-specific nature of brain responses, making them exceedingly difficult to
+                artificially recreate[cite: 6].</p>
+            <p>To evaluate this potential, we utilized a dataset comprising EEG responses to a simple motor paradigm
+                (clenching and relaxing the left and right hand) recorded from 105 subjects[cite: 6]. We designed a
+                novel 2-stage authentication system specifically optimized for single-trial verification[cite: 6].</p>
+        </div>
+
+        <div class="article-section">
+            <h3>Stage 1: Signal Complexity & Feature Extraction</h3>
+            <p>To extract meaningful biometric signatures from the raw EEG data, we deployed an advanced signal
+                processing pipeline in MATLAB[cite: 7].</p>
+            <ul>
+                <li><strong>Empirical Mode Decomposition (EMD):</strong> We utilized EMD to isolate frequency bands in a
+                    data-driven way, extracting the Intrinsic Mode Functions (IMFs) that contained the highest
+                    information density[cite: 6, 7].</li>
+                <li><strong>Entropy & Power Metrics:</strong> For each isolated IMF and across multiple channel
+                    configurations (8, 16, and 64 channels), we computed specific signal complexities, including
+                    univariate Shannon entropy, log entropy, sample entropy, and approximate entropy[cite: 6, 7].</li>
+                <li><strong>Spectral Features:</strong> We supplemented the complexity metrics by calculating the
+                    average power of the mu (7.5–12.5 Hz) and beta (16–31 Hz) rhythms using the multi-taper method[cite:
+                    6].</li>
+            </ul>
+
+            <div class="figure-placeholder">
+                [ Insert Figure: Power Spectral Density (PSD) of IMFs (e.g., Figure 1 from the Biosensors paper) ]
+                <div class="figure-caption">Example Power Spectral Density (PSD) extracted from the first Intrinsic Mode
+                    Functions (IMFs) of a single user trial.</div>
+            </div>
+        </div>
+
+        <div class="article-section">
+            <h3>Stage 2: Dimensionality Reduction & Deep Learning</h3>
+            <p>To process the resulting feature matrices, we implemented and rigorously compared three distinct
+                dimensionality reduction methodologies prior to final classification[cite: 6].</p>
+            <ul>
+                <li><strong>Deep Convolutional Neural Networks (CNNs):</strong> We engineered two architectures in
+                    Python/Keras—an Inception-like CNN and a VGG-like CNN—specifically adapted to unveil dependencies
+                    within EEG features[cite: 6]. These models utilized 1D convolutions to balance network width and
+                    depth while preventing vanishing gradients[cite: 6].</li>
+                <li><strong>Principal Component Analysis (PCA):</strong> We benchmarked the deep learning models against
+                    PCA, which isolated the eigenvectors capturing the largest data variance[cite: 6].</li>
+            </ul>
+
+            <div class="figure-placeholder">
+                [ Insert Figure: Neural Network Architecture (e.g., Figure 3 or 4 from the Biosensors paper) ]
+                <div class="figure-caption">Schematic representation of the Inception-like or VGG-like neural network
+                    architecture utilized for feature dimensionality reduction.</div>
+            </div>
+        </div>
+
+        <div class="article-section">
+            <h3>Classification Performance & Real-World Viability</h3>
+            <p>The reduced feature matrices from the CNNs or PCA were fed into a Support Vector Machine (SVM) equipped
+                with a radial basis function (RBF) kernel to execute the final binary classification (authenticating the
+                valid user versus imposters)[cite: 6].</p>
+            <p>The system was evaluated based on its Accuracy and False Acceptance Rate (FAR). The results demonstrated
+                high viability for real-world deployment:</p>
+            <ul>
+                <li><strong>Optimal Performance:</strong> The PCA-SVM decoder utilizing 64 channels achieved an
+                    outstanding overall accuracy of 95.64% alongside a remarkably low FAR of 1.26%[cite: 6].</li>
+                <li><strong>Architectural Trade-offs:</strong> While both the Inception-like and VGG-like NN-SVM
+                    decoders achieved strong accuracies (up to 93.40% and 90.68% respectively on 64 channels), they
+                    required significantly more computational training time[cite: 6]. Consequently, the PCA-SVM
+                    architecture was recommended as the faster, more practical solution for real-world authentication
+                    systems[cite: 6].</li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+
+</html>

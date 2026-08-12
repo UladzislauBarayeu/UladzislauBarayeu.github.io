@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uladzislau Barayeu | Computational Neuroscientist</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-main: #e5e5e5;
+            --text-muted: #a3a3a3;
+            --accent: #ffffff;
+            --border: #262626;
+            --hover-bg: #171717;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            padding: 2rem 4rem;
+            max-width: 900px;
+            margin: 0 auto;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        header {
+            padding: 4rem 2rem 2rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--text-muted);
+            font-weight: 400;
+            font-size: 1.2rem;
+            margin-top: 0;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            max-width: 650px;
+            margin-top: 1.5rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem 2rem;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-top: 4rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        .project-row {
+            display: flex;
+            align-items: baseline;
+            padding: 2rem 1rem;
+            border-bottom: 1px solid var(--border);
+            text-decoration: none;
+            color: inherit;
+            transition: background 0.2s;
+            border-radius: 8px;
+        }
+
+        .project-row:hover {
+            background-color: var(--hover-bg);
+        }
+
+        .project-number {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            width: 50px;
+            flex-shrink: 0;
+        }
+
+        .project-content {
+            flex-grow: 1;
+        }
+
+        .project-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin: 0 0 0.5rem 0;
+            font-weight: 500;
+        }
+
+        .project-desc {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .arrow {
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            margin-left: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .project-row:hover .arrow {
+            transform: translateX(5px);
+            color: var(--accent);
+        }
+
+        .off-duty-content {
+            padding: 1rem;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cv.html">CV</a>
+        <a href="mailto:baraewlad@gmail.com">Contact</a>
+        <a href="https://github.com/UladzislauBarayeu" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/uladzislau-barayeu-984861241/" target="_blank">LinkedIn</a>
+    </nav>
+
+    <header>
+        <h1>Uladzislau Barayeu</h1>
+        <h2>PhD Researcher in Neuroscience | Data Science & Electrophysiology</h2>
+        <p class="intro">Applying data science and machine learning methods to large-scale electrophysiological
+            recordings. Currently researching systems neuroscience at the Institute of Science and Technology Austria.
+        </p>
+    </header>
+
+    <div class="container">
+
+        <div class="section-label">Selected Works</div>
+
+        <a href="project-umap.html" class="project-row">
+            <div class="project-number">01</div>
+            <div class="project-content">
+                <span class="project-meta">Current Project &middot; BioRxiv Preprint</span>
+                <h3 class="project-title">Neural Manifolds & UMAP Pipeline</h3>
+                <p class="project-desc">A scalable analytical pipeline utilizing UMAP and dimensionality reduction to
+                    interpret complex neural population dynamics.</p>
+            </div>
+            <div class="arrow">&rarr;</div>
+        </a>
+
+        <a href="project-pipeline.html" class="project-row">
+            <div class="project-number">02</div>
+            <div class="project-content">
+                <span class="project-meta">Hardware/Software Integration &middot; Live Code</span>
+                <h3 class="project-title">Hybrid Ephys Recording Pipeline</h3>
+                <p class="project-desc">Synchronized dual-region recordings (HPC and mPFC) utilizing Tetrodes and
+                    Neuropixels with a custom tracking architecture.</p>
+            </div>
+            <div class="arrow">&rarr;</div>
+        </a>
+
+        <a href="project-neuron.html" class="project-row">
+            <div class="project-number">03</div>
+            <div class="project-content">
+                <span class="project-meta">Published &middot; Neuron (2024)</span>
+                <h3 class="project-title">Temporal Coding & CCK Interneurons</h3>
+                <p class="project-desc">Computational analysis of phase precession and replay events regulating temporal
+                    coding and contextual learning.</p>
+            </div>
+            <div class="arrow">&rarr;</div>
+        </a>
+
+        <a href="project-biosensor.html" class="project-row">
+            <div class="project-number">04</div>
+            <div class="project-content">
+                <span class="project-meta">Published &middot; Biosensors (2020)</span>
+                <h3 class="project-title">EEG-Based Authentication</h3>
+                <p class="project-desc">A robust 2-stage machine learning classifier achieving high-accuracy,
+                    single-trial authentication using human EEG datasets.</p>
+            </div>
+            <div class="arrow">&rarr;</div>
+        </a>
+
+        <div class="section-label">Off Duty</div>
+        <div class="off-duty-content">
+            <p>When I am not writing processing pipelines or analyzing high-density recordings, I am usually behind the
+                lens of my Nikon Z5. I specialize in portrait and studio photography, frequently collaborating with my
+                wife to shoot professional portfolios and help build her modeling agency.</p>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Uladzislau Barayeu. Based in Klosterneuburg, Austria.
+    </div>
+
+</body>
+
+</html>
