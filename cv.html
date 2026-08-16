@@ -4,181 +4,322 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curriculum Vitae | Uladzislau Barayeu</title>
+    <title>Uladzislau Barayeu - Curriculum Vitae</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #0a0a0a;
-            --text-main: #e5e5e5;
-            --text-muted: #a3a3a3;
-            --accent: #ffffff;
-            --border: #262626;
-            --hover-bg: #171717;
-            --button-bg: #1f1f1f;
+            --text-main: #f0f0f0;
+            --text-muted: #9ca3af;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.5);
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --gradient-text: linear-gradient(90deg, #60a5fa, #a78bfa);
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        nav {
-            display: flex;
-            justify-content: flex-end;
-            padding: 2rem 4rem;
-            max-width: 900px;
-            margin: 0 auto;
-            border-bottom: 1px solid var(--border);
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(167, 139, 250, 0.08), transparent 25%);
+            background-attachment: fixed;
         }
 
-        nav a {
-            color: var(--text-muted);
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        a {
+            color: var(--accent);
             text-decoration: none;
-            margin-left: 2rem;
-            font-size: 0.95rem;
-            transition: color 0.2s;
+            transition: color 0.3s ease;
         }
 
-        nav a:hover {
-            color: var(--accent);
+        a:hover {
+            color: #60a5fa;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .page-header {
-            margin-bottom: 4rem;
-        }
-
-        h1 {
-            color: var(--accent);
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            line-height: 1.2;
-        }
-
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            font-weight: 400;
-            margin-top: 0;
-        }
-
-        .btn-download {
+        .back-link {
             display: inline-block;
-            background-color: var(--button-bg);
-            color: var(--accent);
-            padding: 0.6rem 1.2rem;
-            text-decoration: none;
-            border: 1px solid var(--border);
-            border-radius: 6px;
+            margin: 2rem 0 0 2rem;
+            color: var(--text-muted);
             font-size: 0.9rem;
-            transition: all 0.2s;
-            margin-top: 1.5rem;
-        }
-
-        .btn-download:hover {
-            background-color: var(--hover-bg);
-            border-color: var(--text-muted);
-        }
-
-        .section-label {
-            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            transition: color 0.3s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .back-link:hover {
+            color: var(--text-main);
+        }
+
+        .cv-wrapper {
+            max-width: 1200px;
+            margin: 4rem auto;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        /* Glassmorphism Card Style */
+        .glass-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Sidebar Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            position: sticky;
+            top: 2rem;
+            height: max-content;
+        }
+
+        .profile-section {
+            text-align: center;
+        }
+
+        .profile-name {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .profile-title {
+            font-size: 1rem;
             color: var(--text-muted);
-            margin-top: 4rem;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid var(--border);
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .contact-item svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--text-muted);
+        }
+
+        .sidebar-section h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            color: #fff;
+            border-bottom: 1px solid var(--card-border);
             padding-bottom: 0.5rem;
         }
 
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .skill-category h4 {
-            color: var(--accent);
-            font-size: 1.1rem;
-            margin-bottom: 0.8rem;
-            font-weight: 500;
-        }
-
-        .skill-category p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin: 0;
-            line-height: 1.8;
-        }
-
-        /* Timeline Layout */
-        .timeline-item {
+        .skill-tags {
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .language-level {
+            color: var(--text-main);
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #fff;
+        }
+
+        .section-title::after {
+            content: '';
+            height: 1px;
+            flex-grow: 1;
+            background: var(--card-border);
+        }
+
+        .summary-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--card-border);
+        }
+
+        .timeline-item {
+            position: relative;
             margin-bottom: 2.5rem;
         }
 
-        .timeline-dates {
-            width: 150px;
-            flex-shrink: 0;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            padding-top: 0.2rem;
+        .timeline-item:last-child {
+            margin-bottom: 0;
         }
 
-        .timeline-content {
-            flex-grow: 1;
-            padding-left: 2rem;
-            border-left: 1px solid var(--border);
+        .timeline-dot {
+            position: absolute;
+            left: -2.35rem;
+            top: 0.3rem;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--bg-color);
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 10px var(--accent-glow);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            background: var(--accent);
+            transform: scale(1.2);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.3rem;
         }
 
         .timeline-title {
-            font-size: 1.2rem;
-            color: var(--accent);
-            margin: 0 0 0.3rem 0;
-            font-weight: 500;
+            font-size: 1.25rem;
+            color: #fff;
+            margin-bottom: 0.2rem;
         }
 
         .timeline-subtitle {
-            font-size: 1rem;
-            color: var(--text-muted);
-            margin: 0 0 0.8rem 0;
-            font-style: italic;
+            font-size: 0.95rem;
+            color: #a78bfa;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
         }
 
         .timeline-desc {
             font-size: 0.95rem;
             color: var(--text-muted);
-            margin: 0;
+            line-height: 1.6;
         }
 
-        @media (max-width: 600px) {
-            .timeline-item {
-                flex-direction: column;
-            }
+        /* Publications */
+        .publication-item {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.02);
+            border-radius: 12px;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
 
-            .timeline-dates {
-                width: 100%;
-                margin-bottom: 0.5rem;
-            }
+        .publication-item:hover {
+            border-color: var(--card-border);
+            background: rgba(255,255,255,0.04);
+            transform: translateX(5px);
+        }
 
-            .timeline-content {
-                padding-left: 0;
-                border-left: none;
-            }
+        .pub-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
 
-            .skills-grid {
+        .pub-meta {
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
+        @media (max-width: 900px) {
+            .cv-wrapper {
                 grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: relative;
+                top: 0;
+            }
+            .back-link {
+                position: relative;
+                margin: 2rem 0 0 2rem;
             }
         }
     </style>
@@ -186,123 +327,172 @@
 
 <body>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="cv.html" style="color: var(--accent);">CV</a>
-        <a href="mailto:baraewlad@gmail.com">Contact</a>
-        <a href="https://github.com/UladzislauBarayeu" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/uladzislau-barayeu-984861241/" target="_blank">LinkedIn</a>
-    </nav>
+    <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
 
-    <div class="container">
-        <div class="page-header">
-            <h1>Curriculum Vitae</h1>
-            <p class="subtitle">Computational Neuroscientist & Data Engineer</p>
-            <a href="Profile.pdf" target="_blank" class="btn-download">Download Full CV (PDF)</a>
-        </div>
+    <div class="cv-wrapper">
+        <!-- Sidebar -->
+        <div class="sidebar glass-card">
+            <div class="profile-section">
+                <h1 class="profile-name">Uladzislau Barayeu</h1>
+                <p class="profile-title">PhD Researcher in Neuroscience<br>Electrophysiology & Neural Data Analysis</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <span>baraewlad@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-1.85 0-2.5 1.02-2.92 1.61v-1.38h-2.9v9h2.9v-4.93c0-.65.13-1.28.93-1.28.8 0 .8 1.13.8 1.32v4.89h2.95zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-9h-2.8v9h2.8z"/></svg>
+                        <a href="https://www.linkedin.com/in/uladzislau-barayeu-984861241" target="_blank">LinkedIn Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <span>Klosterneuburg, Austria</span>
+                    </div>
+                </div>
+            </div>
 
-        <div class="section-label">Technical Arsenal</div>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h4>Languages & Core</h4>
-                <p>Python (Data Science & Analytics)<br>MATLAB<br>Git & GitHub Version Control</p>
+            <div class="sidebar-section">
+                <h3>Top Skills</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Data Science</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">Signal Processing</span>
+                    <span class="skill-tag">Electrophysiology</span>
+                </div>
             </div>
-            <div class="skill-category">
-                <h4>Analysis & Machine Learning</h4>
-                <p>Scikit-learn, TensorFlow<br>UMAP & Dimensionality Reduction<br>Kilosort4, SpikeInterface</p>
-            </div>
-            <div class="skill-category">
-                <h4>Hardware & Systems</h4>
-                <p>Open Ephys<br>Intan RHD USB Interface Systems<br>Linux / WSL2</p>
-            </div>
-            <div class="skill-category">
-                <h4>Design & Communication</h4>
-                <p>Adobe Illustrator (Scientific Figures)<br>Jupyter Notebooks<br>Academic Publishing</p>
-            </div>
-        </div>
 
-        <div class="section-label">Experience</div>
-
-        <div class="timeline-item">
-            <div class="timeline-dates">May 2021 – Present</div>
-            <div class="timeline-content">
-                <h3 class="timeline-title">PhD Researcher in Neuroscience</h3>
-                <p class="timeline-subtitle">Institute of Science and Technology Austria (Csicsvari Lab)</p>
-                <p class="timeline-desc">Investigating systems neuroscience by applying advanced data science and
-                    machine learning methods to large-scale in-vivo electrophysiological recordings. Developing scalable
-                    software architectures for neural manifold analysis and hardware integration for dual-region (HPC
-                    and mPFC) recordings.</p>
-            </div>
-        </div>
-
-        <div class="timeline-item">
-            <div class="timeline-dates">Feb 2021 – May 2021</div>
-            <div class="timeline-content">
-                <h3 class="timeline-title">Rotation Student</h3>
-                <p class="timeline-subtitle">Institute of Science and Technology Austria (Jösch Lab)</p>
-                <p class="timeline-desc">Designed and executed calcium imaging experiments in the superior colliculus,
-                    paired with advanced data analysis techniques in neuroethology.</p>
+            <div class="sidebar-section">
+                <h3>Languages</h3>
+                <div class="language-item">
+                    <span>English</span>
+                    <span class="language-level">Full Professional</span>
+                </div>
+                <div class="language-item">
+                    <span>German</span>
+                    <span class="language-level">Limited Working</span>
+                </div>
+                <div class="language-item">
+                    <span>Russian</span>
+                    <span class="language-level">Native</span>
+                </div>
             </div>
         </div>
 
-        <div class="timeline-item">
-            <div class="timeline-dates">Dec 2020 – Feb 2021</div>
-            <div class="timeline-content">
-                <h3 class="timeline-title">Rotation Student</h3>
-                <p class="timeline-subtitle">Institute of Science and Technology Austria (Barton Lab)</p>
-                <p class="timeline-desc">Applied machine learning methodologies and structural data analysis to
-                    large-scale evolutionary genetic datasets.</p>
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="glass-card">
+                <h2 class="section-title">Summary</h2>
+                <p class="summary-text">
+                    PhD researcher in Neuroscience at the Institute of Science and Technology Austria, with expected graduation in December 2026. My research focuses on applying data science and machine learning methods to large-scale electrophysiological recordings collected in-house. I have prior experience analyzing human EEG and biophysics datasets, as well as a background in robotics through international competitions, where I progressed from team participant to coach.
+                </p>
+            </div>
+
+            <div class="glass-card">
+                <h2 class="section-title">Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">May 2021 – Present</div>
+                        <h3 class="timeline-title">PhD Graduate Student</h3>
+                        <p class="timeline-subtitle">IST Austria | Laboratory of Prof. Jozsef Csicsvari</p>
+                        <p class="timeline-desc">Investigating systems neuroscience by applying advanced data science and machine learning methods to large-scale in-vivo electrophysiological recordings.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Feb 2021 – May 2021</div>
+                        <h3 class="timeline-title">Rotation Student</h3>
+                        <p class="timeline-subtitle">IST Austria | Laboratory of Prof. Maximilian Jösch</p>
+                        <p class="timeline-desc">Designed and executed calcium imaging experiments in the superior colliculus, with subsequent advanced data analysis in neuroethology.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Dec 2020 – Feb 2021</div>
+                        <h3 class="timeline-title">Rotation Student</h3>
+                        <p class="timeline-subtitle">IST Austria | Laboratory of Prof. Nicholas Barton</p>
+                        <p class="timeline-desc">Performed data analysis and applied machine learning methods to evolutionary genetic datasets from snapdragon (Antirrhinum).</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Sep 2020 – Dec 2020</div>
+                        <h3 class="timeline-title">Rotation Student</h3>
+                        <p class="timeline-subtitle">IST Austria | Laboratory of Prof. Jozsef Csicsvari</p>
+                        <p class="timeline-desc">Initial rotation exploring systems neuroscience and high-density recording architectures.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Oct 2019 – May 2020</div>
+                        <h3 class="timeline-title">Programming and Robotics Teacher/Tutor</h3>
+                        <p class="timeline-subtitle">Minsk, Belarus</p>
+                        <p class="timeline-desc">Coached teams of high-school and university students, who won different local robotics events. Participant at World Robot Olympiad 2019 in Budapest.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Jun 2019 – Sep 2019</div>
+                        <h3 class="timeline-title">Research Intern</h3>
+                        <p class="timeline-subtitle">IST Austria | Laboratory of Prof. Jozsef Csicsvari</p>
+                        <p class="timeline-desc">Conducted analysis of electrophysiological data acquired during complex optogenetic manipulations.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Jun 2018 – Sep 2018</div>
+                        <h3 class="timeline-title">Research Intern, OeAD Scholarship</h3>
+                        <p class="timeline-subtitle">IST Austria | Laboratory of Prof. Jozsef Csicsvari</p>
+                        <p class="timeline-desc">Analyzed functional connectivity between the prefrontal cortex and hippocampus using electrophysiological data.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Feb 2018 – May 2018</div>
+                        <h3 class="timeline-title">Research Intern</h3>
+                        <p class="timeline-subtitle">KU Leuven | Laboratory of Prof. Marc Van Hulle</p>
+                        <p class="timeline-desc">Human EEG data analysis focusing on neuro- and psychophysiology.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <h2 class="section-title">Education</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Sep 2020 – Dec 2026</div>
+                        <h3 class="timeline-title">Doctor of Philosophy, Neuroscience</h3>
+                        <p class="timeline-subtitle">Institute of Science and Technology Austria</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Sep 2015 – Jul 2020</div>
+                        <h3 class="timeline-title">Diploma, Department of Biophysics</h3>
+                        <p class="timeline-subtitle">Belarusian State University (Faculty of Physics)</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Sep 2015 – Sep 2016</div>
+                        <h3 class="timeline-title">Additional Training</h3>
+                        <p class="timeline-subtitle">Belarusian State University (Faculty of Applied Mathematics and Computer Science)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <h2 class="section-title">Selected Publications</h2>
+                <div class="publication-item">
+                    <div class="pub-title">Hippocampal cholecystokinin-expressing interneurons regulate temporal coding and contextual learning</div>
+                    <div class="pub-meta">Neuron (2024)</div>
+                </div>
+                <div class="publication-item">
+                    <div class="pub-title">Robust Single-Trial EEG-Based Authentication Achieved with a 2-Stage Classifier</div>
+                    <div class="pub-meta">Biosensors (2020)</div>
+                </div>
             </div>
         </div>
-
-        <div class="timeline-item">
-            <div class="timeline-dates">2018 – 2019</div>
-            <div class="timeline-content">
-                <h3 class="timeline-title">Research Intern</h3>
-                <p class="timeline-subtitle">Institute of Science and Technology Austria (Csicsvari Lab)</p>
-                <p class="timeline-desc">Analyzed functional connectivity between the prefrontal cortex and hippocampus.
-                    Processed electrophysiological data acquired during complex optogenetic manipulations.</p>
-            </div>
-        </div>
-
-        <div class="timeline-item">
-            <div class="timeline-dates">Feb 2018 – May 2018</div>
-            <div class="timeline-content">
-                <h3 class="timeline-title">Research Intern</h3>
-                <p class="timeline-subtitle">KU Leuven, Department of Neuroscience (Van Hulle Lab)</p>
-                <p class="timeline-desc">Conducted comprehensive human EEG data analysis focusing on neuro- and
-                    psychophysiology.</p>
-            </div>
-        </div>
-
-        <div class="section-label">Education</div>
-
-        <div class="timeline-item">
-            <div class="timeline-dates">Sep 2020 – Dec 2026</div>
-            <div class="timeline-content">
-                <h3 class="timeline-title">Doctor of Philosophy, Neuroscience</h3>
-                <p class="timeline-subtitle">Institute of Science and Technology Austria</p>
-            </div>
-        </div>
-
-        <div class="timeline-item">
-            <div class="timeline-dates">Sep 2015 – Jul 2020</div>
-            <div class="timeline-content">
-                <h3 class="timeline-title">Diploma, Department of Biophysics</h3>
-                <p class="timeline-subtitle">Belarusian State University, Faculty of Physics</p>
-            </div>
-        </div>
-
-        <div class="timeline-item">
-            <div class="timeline-dates">Sep 2015 – Sep 2016</div>
-            <div class="timeline-content">
-                <h3 class="timeline-title">Additional Training</h3>
-                <p class="timeline-subtitle">Belarusian State University, Faculty of Applied Mathematics and Computer
-                    Science</p>
-            </div>
-        </div>
-
     </div>
 </body>
-
 </html>

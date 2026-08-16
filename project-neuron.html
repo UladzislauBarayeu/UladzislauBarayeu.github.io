@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temporal Coding & CCK Interneurons | Uladzislau Barayeu</title>
+    <title>Hippocampal CCK Interneurons & Contextual Memory | Uladzislau Barayeu</title>
     <style>
         :root {
             --bg-color: #0a0a0a;
@@ -158,6 +158,23 @@
             margin-top: 1rem;
             font-style: italic;
         }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .badge {
+            background-color: var(--border);
+            color: var(--accent);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
     </style>
 </head>
 
@@ -175,8 +192,8 @@
         <a href="index.html" class="back-link">&larr; Back to Selected Works</a>
 
         <div class="project-header">
-            <h1>Temporal Coding & CCK Interneurons</h1>
-            <p class="subtitle">Computational analysis of phase precession and sequence replay (Neuron, 2024)</p>
+            <h1>Hippocampal CCK Interneurons & Contextual Memory</h1>
+            <p class="subtitle">Computational analysis of temporal coding, sequence replay, and network oscillations in the CA1 hippocampus.</p>
 
             <div class="button-group">
                 <a href="https://github.com/UladzislauBarayeu/replay-and-phase-precession-CCKI" target="_blank"
@@ -184,17 +201,25 @@
                 <a href="https://pubmed.ncbi.nlm.nih.gov/38636524/" target="_blank" class="btn">Read Publication
                     (Neuron)</a>
             </div>
+
+            <div class="badges">
+                <span class="badge">Signal Processing</span>
+                <span class="badge">Python / MATLAB</span>
+                <span class="badge">Bayesian Decoding</span>
+                <span class="badge">Statistical Modeling</span>
+                <span class="badge">In-vivo Electrophysiology</span>
+            </div>
         </div>
 
         <div class="article-section">
             <h3>The Research Context</h3>
             <p>Cholecystokinin-expressing interneurons (CCKIs) in the CA1 region of the hippocampus are hypothesized to
-                shape pyramidal cell firing patterns and regulate network oscillations[cite: 4]. To probe their specific
+                shape pyramidal cell firing patterns and regulate network oscillations. To probe their specific
                 roles, our laboratory utilized advanced optogenetic and chemogenetic silencing tools in freely moving
-                mice[cite: 4, 9]. While the experimental team executed the highly complex surgeries and data
+                mice. While the experimental team executed the highly complex surgeries and data
                 acquisition, my primary contribution to this publication was leading the computational analysis of the
                 resulting high-density electrophysiological data, specifically focusing on temporal coding dynamics,
-                place field architecture, and sequence replay[cite: 9].</p>
+                place field architecture, and sequence replay.</p>
         </div>
 
         <div class="article-section">
@@ -202,58 +227,52 @@
             <p>One of the central questions of the study was whether perisomatic inhibition from CCKIs regulates theta
                 phase precession—a phenomenon where place cells fire at progressively earlier phases of the theta rhythm
                 as an animal traverses a place field. To answer this, I built an analytical pipeline to track spike
-                timing relative to the theta oscillation phase[cite: 9].</p>
+                timing relative to the theta oscillation phase.</p>
             <ul>
                 <li><strong>Methodology:</strong> I utilized linear-circular regression to quantify the strength and
-                    correlation of theta phase precession across different experimental sessions[cite: 4, 9].</li>
+                    correlation of theta phase precession across different experimental sessions.</li>
                 <li><strong>Key Finding:</strong> The analysis revealed that optogenetic silencing of CCKIs
-                    fundamentally disrupts the precise temporal coding of place cells[cite: 9]. Unlike previously
+                    fundamentally disrupts the precise temporal coding of place cells. Unlike previously
                     studied interneurons, silencing CCKIs did not just shift the phase, but severely impaired normal
-                    theta phase precession[cite: 4, 9].</li>
+                    theta phase precession.</li>
             </ul>
 
-            <div class="figure-placeholder">
-                [ Insert Figure: Theta Phase Precession Plots (e.g., Figure 6 from the Neuron paper) ]
-                <div class="figure-caption">Smoothed firing probability across normalized positions demonstrating the
-                    attenuation of theta phase precession after CCKI silencing.</div>
-            </div>
+            <img src="1-s2.0-S0896627324001971-main_page11_img1.jpeg" alt="Theta Phase Precession Plots" style="width: 100%; border-radius: 8px; margin: 2.5rem 0 0.5rem 0; border: 1px solid var(--border); background-color: white;">
+            <div class="figure-caption" style="text-align: left; margin-bottom: 2.5rem; line-height: 1.5;"><strong>Figure 6. Attenuated theta phase precession after CCKI silencing.</strong> Smoothed firing probability and regression coefficients demonstrate impaired theta phase precession across normalized positions following CCKI inhibition. This severe disruption highlights the fundamental requirement of perisomatic inhibition for maintaining precise temporal codes during spatial navigation.</div>
         </div>
 
         <div class="article-section">
             <h3>Sequence Reactivation (Replay) Decoding</h3>
             <p>Because CCKI silencing disrupted theta phase precession, a logical hypothesis would be that trajectory
                 replay during sleep would also be impaired. To test this, I analyzed the reactivation of neuronal
-                sequences during both awake exploration and post-exploration sleep states[cite: 4, 9].</p>
+                sequences during both awake exploration and post-exploration sleep states.</p>
             <ul>
                 <li><strong>Decoding Algorithms:</strong> I implemented Bayesian (Classic) decoding methods and
-                    identified High Synchrony Events (HSEs) to score trajectory replay fidelity[cite: 9]. The analysis
+                    identified High Synchrony Events (HSEs) to score trajectory replay fidelity. The analysis
                     compared actual replay scores against shuffled data (place field rotation) to ensure statistical
-                    rigor[cite: 4].</li>
+                    rigor.</li>
                 <li><strong>Unexpected Results:</strong> The computational analysis yielded a surprising result:
                     silencing CCKI activity actually <em>enhanced</em> the reactivation of neuronal sequences during
-                    both waking and sleep states[cite: 4, 9]. This demonstrated that robust sequence replay can occur
-                    even when the preceding theta phase precession is severely disrupted[cite: 4].</li>
+                    both waking and sleep states. This demonstrated that robust sequence replay can occur
+                    even when the preceding theta phase precession is severely disrupted.</li>
             </ul>
 
-            <div class="figure-placeholder">
-                [ Insert Figure: Awake and Sleep Replay Trajectories (e.g., Figure 7 from the Neuron paper) ]
-                <div class="figure-caption">Reconstructed spatial trajectories based on high synchrony events (HSEs)
-                    demonstrating enhanced replay scores after CCKI silencing.</div>
-            </div>
+            <img src="1-s2.0-S0896627324001971-main_page12_img1.jpeg" alt="Awake and Sleep Replay Trajectories" style="width: 100%; border-radius: 8px; margin: 2.5rem 0 0.5rem 0; border: 1px solid var(--border); background-color: white;">
+            <div class="figure-caption" style="text-align: left; margin-bottom: 2.5rem; line-height: 1.5;"><strong>Figure 7. Reactivation is altered by CCKI silencing.</strong> Reconstructed spatial trajectories based on high synchrony events (HSEs) showing enhanced sequence replay scores after CCKI silencing during both awake exploration and sleep. These unexpected results suggest a complex mechanism where CCK interneurons actively constrain and filter the reactivation of neuronal sequences, preventing aberrant runaway excitation.</div>
         </div>
 
         <div class="article-section">
             <h3>Network Oscillations & Place Field Architecture</h3>
             <p>Beyond temporal coding, I analyzed the broader impact of CCKI manipulation on rhythmic network states and
-                spatial tuning[cite: 9].</p>
+                spatial tuning.</p>
             <ul>
                 <li><strong>Oscillatory Power:</strong> I computed Power Spectral Density (PSD) using multitaper methods
-                    to evaluate state-dependent power changes[cite: 4, 9]. This confirmed that CCKI silencing
+                    to evaluate state-dependent power changes. This confirmed that CCKI silencing
                     significantly enhanced Sharp-Wave Ripples (SWRs), increasing both ripple band LFP power and
-                    pyramidal cell firing[cite: 4, 9].</li>
+                    pyramidal cell firing.</li>
                 <li><strong>Place Field Dynamics:</strong> By calculating spatial firing properties, the analysis showed
                     that CCKI inhibition led to wide disinhibitory network changes, resulting in expanded place fields
-                    and enhanced pyramidal cell burst firing[cite: 4, 9].</li>
+                    and enhanced pyramidal cell burst firing.</li>
             </ul>
         </div>
 

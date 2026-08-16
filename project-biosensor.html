@@ -158,6 +158,23 @@
             margin-top: 1rem;
             font-style: italic;
         }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .badge {
+            background-color: var(--border);
+            color: var(--accent);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
     </style>
 </head>
 
@@ -185,6 +202,16 @@
                 <a href="https://www.mdpi.com/2079-6374/10/9/124" target="_blank" class="btn">Read Publication
                     (Biosensors)</a>
             </div>
+
+            <div class="badges">
+                <span class="badge">Machine Learning</span>
+                <span class="badge">Deep Learning (CNNs)</span>
+                <span class="badge">Support Vector Machine (SVM)</span>
+                <span class="badge">Principal Component Analysis (PCA)</span>
+                <span class="badge">MATLAB</span>
+                <span class="badge">Signal Processing (EMD)</span>
+                <span class="badge">Data Science</span>
+            </div>
         </div>
 
         <div class="article-section">
@@ -192,70 +219,61 @@
             <p>As the risk of unauthorized personal data exposure grows, biometric authentication offers a highly secure
                 alternative to traditional passwords. Biometric authentication using electroencephalography (EEG)
                 signals relies on the subject-specific nature of brain responses, making them exceedingly difficult to
-                artificially recreate[cite: 6].</p>
+                artificially recreate.</p>
             <p>To evaluate this potential, we utilized a dataset comprising EEG responses to a simple motor paradigm
-                (clenching and relaxing the left and right hand) recorded from 105 subjects[cite: 6]. We designed a
-                novel 2-stage authentication system specifically optimized for single-trial verification[cite: 6].</p>
+                (clenching and relaxing the left and right hand) recorded from 105 subjects. We designed a
+                novel 2-stage authentication system specifically optimized for single-trial verification.</p>
         </div>
 
         <div class="article-section">
             <h3>Stage 1: Signal Complexity & Feature Extraction</h3>
             <p>To extract meaningful biometric signatures from the raw EEG data, we deployed an advanced signal
-                processing pipeline in MATLAB[cite: 7].</p>
+                processing pipeline in MATLAB.</p>
             <ul>
                 <li><strong>Empirical Mode Decomposition (EMD):</strong> We utilized EMD to isolate frequency bands in a
                     data-driven way, extracting the Intrinsic Mode Functions (IMFs) that contained the highest
-                    information density[cite: 6, 7].</li>
+                    information density.</li>
                 <li><strong>Entropy & Power Metrics:</strong> For each isolated IMF and across multiple channel
                     configurations (8, 16, and 64 channels), we computed specific signal complexities, including
-                    univariate Shannon entropy, log entropy, sample entropy, and approximate entropy[cite: 6, 7].</li>
+                    univariate Shannon entropy, log entropy, sample entropy, and approximate entropy.</li>
                 <li><strong>Spectral Features:</strong> We supplemented the complexity metrics by calculating the
-                    average power of the mu (7.5–12.5 Hz) and beta (16–31 Hz) rhythms using the multi-taper method[cite:
-                    6].</li>
+                    average power of the mu (7.5–12.5 Hz) and beta (16–31 Hz) rhythms using the multi-taper method.</li>
             </ul>
 
-            <div class="figure-placeholder">
-                [ Insert Figure: Power Spectral Density (PSD) of IMFs (e.g., Figure 1 from the Biosensors paper) ]
-                <div class="figure-caption">Example Power Spectral Density (PSD) extracted from the first Intrinsic Mode
-                    Functions (IMFs) of a single user trial.</div>
-            </div>
         </div>
 
         <div class="article-section">
             <h3>Stage 2: Dimensionality Reduction & Deep Learning</h3>
             <p>To process the resulting feature matrices, we implemented and rigorously compared three distinct
-                dimensionality reduction methodologies prior to final classification[cite: 6].</p>
+                dimensionality reduction methodologies prior to final classification.</p>
             <ul>
                 <li><strong>Deep Convolutional Neural Networks (CNNs):</strong> We engineered two architectures in
                     Python/Keras—an Inception-like CNN and a VGG-like CNN—specifically adapted to unveil dependencies
-                    within EEG features[cite: 6]. These models utilized 1D convolutions to balance network width and
-                    depth while preventing vanishing gradients[cite: 6].</li>
+                    within EEG features. These models utilized 1D convolutions to balance network width and
+                    depth while preventing vanishing gradients.</li>
                 <li><strong>Principal Component Analysis (PCA):</strong> We benchmarked the deep learning models against
-                    PCA, which isolated the eigenvectors capturing the largest data variance[cite: 6].</li>
+                    PCA, which isolated the eigenvectors capturing the largest data variance.</li>
             </ul>
 
-            <div class="figure-placeholder">
-                [ Insert Figure: Neural Network Architecture (e.g., Figure 3 or 4 from the Biosensors paper) ]
-                <div class="figure-caption">Schematic representation of the Inception-like or VGG-like neural network
-                    architecture utilized for feature dimensionality reduction.</div>
-            </div>
+            <img src="biosensor_real_figure7.png" alt="ROC Curves and Performance Evaluation" style="width: 100%; border-radius: 8px; margin: 2.5rem 0 0.5rem 0; border: 1px solid var(--border); background-color: white;">
+            <div class="figure-caption" style="text-align: left; margin-bottom: 2.5rem; line-height: 1.5;"><strong>Figure 7. Receiver Operating Characteristic (ROC) curves.</strong> Authentication performance comparing the PCA-SVM, Inception-like NN-SVM, and VGG-like NN-SVM decoders across the 64-channel configuration. The graph visualizes the highly favorable trade-off between the True Positive Rate and False Positive Rate, highlighting the PCA-SVM model's efficiency for real-world deployment.</div>
         </div>
 
         <div class="article-section">
             <h3>Classification Performance & Real-World Viability</h3>
             <p>The reduced feature matrices from the CNNs or PCA were fed into a Support Vector Machine (SVM) equipped
                 with a radial basis function (RBF) kernel to execute the final binary classification (authenticating the
-                valid user versus imposters)[cite: 6].</p>
+                valid user versus imposters).</p>
             <p>The system was evaluated based on its Accuracy and False Acceptance Rate (FAR). The results demonstrated
                 high viability for real-world deployment:</p>
             <ul>
                 <li><strong>Optimal Performance:</strong> The PCA-SVM decoder utilizing 64 channels achieved an
-                    outstanding overall accuracy of 95.64% alongside a remarkably low FAR of 1.26%[cite: 6].</li>
-                <li><strong>Architectural Trade-offs:</strong> While both the Inception-like and VGG-like NN-SVM
+                    outstanding overall accuracy of 95.64% alongside a remarkably low FAR of 1.26%.</li>
+                <li><strong>Architectural Trade-offs:</strong> We developed both an Inception-like and a VGG-like NN-SVM. While both the Inception-like and VGG-like NN-SVM
                     decoders achieved strong accuracies (up to 93.40% and 90.68% respectively on 64 channels), they
-                    required significantly more computational training time[cite: 6]. Consequently, the PCA-SVM
+                    required significantly more computational training time (1 to 3 hours vs 30 minutes for PCA-SVM) and did not exceed the PCA-SVM performance. Consequently, the PCA-SVM
                     architecture was recommended as the faster, more practical solution for real-world authentication
-                    systems[cite: 6].</li>
+                    systems.</li>
             </ul>
         </div>
 

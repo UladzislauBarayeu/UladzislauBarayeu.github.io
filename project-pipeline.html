@@ -158,6 +158,23 @@
             margin-top: 1rem;
             font-style: italic;
         }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .badge {
+            background-color: var(--border);
+            color: var(--accent);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
     </style>
 </head>
 
@@ -182,6 +199,15 @@
                 <a href="https://github.com/UladzislauBarayeu/Recording_preprocessing_tetro_NP" target="_blank"
                     class="btn">View Pipeline Code (GitHub)</a>
             </div>
+
+            <div class="badges">
+                <span class="badge">Data Engineering</span>
+                <span class="badge">Hardware Integration</span>
+                <span class="badge">Kilosort4 / SpikeInterface</span>
+                <span class="badge">Linux / WSL2</span>
+                <span class="badge">Open Ephys</span>
+                <span class="badge">Python / Jupyter</span>
+            </div>
         </div>
 
         <div class="article-section">
@@ -191,64 +217,67 @@
                 Neuropixels and traditional wire tetrodes—into a single, synchronized acquisition and preprocessing
                 pipeline presents significant engineering hurdles. This project details a custom end-to-end architecture
                 built to simultaneously record and sort electrophysiology data from the hippocampus (CA1) and medial
-                prefrontal cortex (mPFC) during freely moving behavioral tasks[cite: 8].</p>
+                prefrontal cortex (mPFC) during freely moving behavioral tasks.</p>
         </div>
 
         <div class="article-section">
             <h3>Custom Microdrive & Hardware Assembly</h3>
             <p>To enable simultaneous dual-region targeting, the experiments utilized a custom microdrive combining a
                 single Neuropixels probe (versions 1.0 or 2.0) targeting the mPFC alongside 24 individually movable
-                tetrodes targeting the CA1[cite: 5].</p>
+                tetrodes targeting the CA1.</p>
             <ul>
                 <li><strong>Tetrode Fabrication:</strong> The 24 tetrodes were constructed from four twisted 12 µm
-                    tungsten wires and subsequently gold-plated to achieve a ~300 KΩ impedance[cite: 5].</li>
+                    tungsten wires and subsequently gold-plated to achieve a ~300 KΩ impedance.</li>
                 <li><strong>Implant Design:</strong> The Neuropixels probe and the tetrode drive were successfully
-                    combined into a single, unified implant architecture[cite: 5].</li>
+                    combined into a single, unified implant architecture.</li>
                 <li><strong>Data Acquisition:</strong> The hardware was driven by an Intan RHD2132 headstage and
-                    recorded through Open Ephys version 0.6.7[cite: 5, 8].</li>
+                    recorded through Open Ephys version 0.6.7.</li>
             </ul>
 
-            <div class="figure-placeholder">
-                [ Insert Photo: Custom Dual-Implant Microdrive Assembly (Tetrodes + Neuropixels) ]
-                <div class="figure-caption">Custom microdrive housing 24 individually movable tetrodes (CA1) and a
-                    single Neuropixels probe (mPFC).</div>
+            <div style="display: flex; justify-content: center; gap: 1.5rem; margin: 2.5rem 0 0.5rem 0;">
+                <img src="photo_2026-08-16_14-18-23.jpg" alt="Custom Dual-Implant Microdrive Assembly 1" style="width: 35%; border-radius: 8px; border: 1px solid var(--border);">
+                <img src="photo_2026-08-16_14-18-27.jpg" alt="Custom Dual-Implant Microdrive Assembly 2" style="width: 35%; border-radius: 8px; border: 1px solid var(--border);">
             </div>
+            <div class="figure-caption" style="text-align: center; margin-bottom: 2.5rem;">Custom microdrive housing 24
+                individually movable tetrodes (CA1) and a single Neuropixels probe (mPFC).</div>
         </div>
 
         <div class="article-section">
             <h3>Behavioral Paradigms: The 8-Arm Maze</h3>
-            <p>The hardware architecture was deployed during complex spatial tasks on a radial eight-arm maze[cite: 5].
+            <p>The hardware architecture was deployed during complex spatial tasks on a radial eight-arm maze.
                 We utilized a synchronized overhead camera environment to track the animal's trajectory via a
-                head-mounted RGB LED cluster[cite: 5, 8]. The pipeline seamlessly handles data from two primary
+                head-mounted RGB LED cluster. The pipeline seamlessly handles data from two primary
                 cognitive tasks:</p>
             <ul>
                 <li><strong>Spatial Reference and Working Memory (SRW):</strong> Rats navigated the maze to collect
-                    rewards placed consistently in three fixed arms[cite: 5].</li>
+                    rewards placed consistently in three fixed arms.</li>
                 <li><strong>Cue-Guided Association (CGA):</strong> A more demanding setup where a specific food cue
-                    presented in the start arm dictated which of the alternative arms contained a reward[cite: 5].</li>
+                    presented in the start arm dictated which of the alternative arms contained a reward.</li>
             </ul>
 
-            <div class="figure-placeholder">
-                [ Insert Photo or Diagram: 8-Arm Radial Maze & LED Tracking Setup ]
-                <div class="figure-caption">The 8-arm radial maze setup showing the tracking of head-mounted RGB LEDs
-                    during the SRW and CGA behavioral tasks.</div>
+            <div style="display: flex; gap: 1rem; margin: 2.5rem 0 0.5rem 0;">
+                <img src="photo_2026-08-16_14-15-04.jpg" alt="Maze Setup 1" style="width: 50%; border-radius: 8px; border: 1px solid var(--border);">
+                <img src="photo_2026-08-16_15-02-45.jpg" alt="Maze Setup 2" style="width: 50%; border-radius: 8px; border: 1px solid var(--border);">
             </div>
+            <div class="figure-caption" style="text-align: center; margin-bottom: 2.5rem;">The 8-arm radial maze setup
+                showing the tracking of head-mounted RGB LEDs during the SRW and CGA behavioral tasks.</div>
         </div>
 
         <div class="article-section">
             <h3>Automated Clustering & Software Workflow</h3>
             <p>Because the physical recording modalities differ fundamentally, the preprocessing pipeline utilizes
                 isolated, optimal sorting algorithms for each data stream while maintaining absolute temporal
-                synchronization[cite: 8].</p>
+                synchronization.</p>
             <ul>
+                <li><strong>Synchronization & EEG Extraction:</strong> The system aligns temporal events across behavioral cameras, 
+                    Neuropixels, and tetrodes. Continuous EEG traces are simultaneously extracted and stored for oscillation analysis.</li>
                 <li><strong>Tetrode Processing:</strong> The tetrode data is routed to Mountainsort, which is executed
-                    locally via a Windows Subsystem for Linux (WSL2) environment utilizing `.par` configuration files
-                    for spike detection thresholds[cite: 8].</li>
+                    locally via a Windows Subsystem for Linux (WSL2).</li>
                 <li><strong>Neuropixels Processing:</strong> The high-density probe data is clustered using Kilosort4,
-                    reading directly from Open Ephys `.imro` and `.json` site maps[cite: 8].</li>
+                    reading directly from Open Ephys `.imro` and `.json` site maps.</li>
                 <li><strong>Curation & Export:</strong> Output from both sorting engines is converted and unified for
-                    manual curation within Phy 2[cite: 8]. The final curated datasets are exported into standard
-                    laboratory formats (`.res`, `.clu`) using automated Jupyter Notebook scripts[cite: 8].</li>
+                    manual curation within Phy 2. The final curated datasets are exported into standard
+                    laboratory formats (`.res`, `.clu`) using automated Jupyter Notebook scripts.</li>
             </ul>
         </div>
 

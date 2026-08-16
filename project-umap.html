@@ -147,6 +147,23 @@
             margin-top: 1rem;
             font-style: italic;
         }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .badge {
+            background-color: var(--border);
+            color: var(--accent);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
     </style>
 </head>
 
@@ -173,6 +190,14 @@
                 <a href="https://www.biorxiv.org/content/10.64898/2026.03.27.714523v2.full" target="_blank"
                     class="btn">Read Preprint (bioRxiv)</a>
             </div>
+
+            <div class="badges">
+                <span class="badge">Python</span>
+                <span class="badge">Dimensionality Reduction (UMAP & PCA)</span>
+                <span class="badge">Scikit-learn (KNN)</span>
+                <span class="badge">Data Science</span>
+                <span class="badge">In-vivo Electrophysiology</span>
+            </div>
         </div>
 
         <div class="article-section">
@@ -192,19 +217,17 @@
         <div class="article-section">
             <h3>Methodology & Behavioral Paradigms</h3>
             <p>The analysis pipeline relies on high-density single-unit extracellular recordings utilizing both
-                Neuropixels probes and custom 32-tetrode microdrives. The datasets capture behavior across two distinct
-                tasks:</p>
+                Neuropixels probes and custom 24-tetrode microdrives. The datasets capture behavior across two distinct
+                tasks (Figure 1):</p>
             <p><strong>1. Spatial Reference and Working Memory (SRW) Task:</strong> Rats collected rewards from three
                 fixed arms, transitioning from initial exploration to near-optimal performance within days.</p>
             <p><strong>2. Cue-Guided Association (CGA) Task:</strong> A highly demanding cognitive task requiring
                 animals to utilize the identity of a food cue in a start arm to deduce the location of a baited arm
                 elsewhere on the maze.</p>
 
-            <div class="figure-placeholder">
-                [ Insert Figure 1 Here: SVG/PNG export from Adobe Illustrator ]
-                <div class="figure-caption">Figure 1: Behavioral paradigms (CGA and SRW) and arm-related spatial tuning
-                    of CA1 and mPFC pyramidal cells.</div>
-            </div>
+            <img src="2026.03.27.714523v2.full_page3_img1_cropped.png" alt="Behavioral Paradigms"
+                style="width: 100%; border-radius: 8px; margin: 2.5rem 0 0.5rem 0; border: 1px solid var(--border);">
+            <div class="figure-caption" style="text-align: left; margin-bottom: 2.5rem; line-height: 1.5;"><strong>Figure 1. Behavioral paradigms and maze arm-related firing.</strong> (A) CGA task: rats chose reward arms based on food cue identity. (B) SRW task: three identical rewards collected at fixed arms. (C-D) Spatial tuning in mPFC and CA1 pyramidal neurons. The recordings demonstrate that while the hippocampus is highly selective for distinct spatial locations, the mPFC initially exhibits much broader tuning across the task space.</div>
 
             <p>We tracked population activity by embedding the high-dimensional spike-count vectors into a
                 low-dimensional manifold using Uniform Manifold Approximation and Projection (UMAP). This continuous
@@ -221,12 +244,14 @@
             <p>However, as animals gained task familiarity, this geometry shifted dramatically. The temporal tracking
                 alignment weakened, and the mPFC manifolds began to clearly differentiate specific arms, mirroring the
                 distinct spatial representations traditionally seen in the hippocampus. We quantified this shift using a
-                bias-corrected Structure Index (SI) and cross-validated k-nearest-neighbor (KNN) decoders.</p>
+                bias-corrected Structure Index (SI) and cross-validated k-nearest-neighbor (KNN) decoders for arm
+                identity, position (MAE), and trial progression (Figures 2 and 3).</p>
 
-            <div class="figure-placeholder">
-                [ Insert Figure 2 & 3 Here: Plotly UMAP Embeddings ]
-                <div class="figure-caption">Figure 2 & 3: 3D UMAP projections of mPFC neural activity transitioning from
-                    temporal tracking to discrete spatial coding.</div>
+            <img src="2026.03.27.714523v2.full_page4_img1.png" alt="UMAP Embeddings 1"
+                style="width: 100%; border-radius: 8px; margin: 2.5rem 0 0.5rem 0; border: 1px solid var(--border);">
+            <img src="2026.03.27.714523v2.full_page6_img1.png" alt="UMAP Embeddings 2"
+                style="width: 100%; border-radius: 8px; margin: 0.5rem 0 0.5rem 0; border: 1px solid var(--border);">
+            <div class="figure-caption" style="text-align: left; margin-bottom: 2.5rem; line-height: 1.5;"><strong>Figure 2 & 3. Reorganization of the mPFC manifold with experience.</strong> 3D UMAP projections of mPFC and CA1 neural activity transitioning from temporal tracking (trial progression) to discrete spatial coding (arm identity) with task repetition. This non-linear dimensionality reduction clearly captures how the prefrontal cortex dynamically restructures its population code to support evolving cognitive strategies as task proficiency increases.
             </div>
 
             <p>By assessing data from a strategy-shifting plus-maze task, we further confirmed that this arm
