@@ -28,6 +28,7 @@
         nav {
             display: flex;
             justify-content: flex-end;
+            align-items: center;
             padding: 2rem 4rem;
             max-width: 1000px;
             margin: 0 auto;
@@ -44,6 +45,45 @@
 
         nav a:hover {
             color: var(--accent);
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-left: 2rem;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--bg-color);
+            min-width: 280px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+            z-index: 10;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            right: 0;
+            top: 100%;
+            padding: 0.5rem 0;
+        }
+
+        .dropdown-content a {
+            color: var(--text-muted);
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            display: block;
+            margin-left: 0;
+            font-size: 0.9rem;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--hover-bg);
+            color: var(--accent);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
 
         .container {
@@ -182,6 +222,15 @@
 
     <nav>
         <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="#" style="margin-left: 0;">Selected Projects &#9662;</a>
+            <div class="dropdown-content">
+                <a href="project-umap.html">Neural Manifolds & UMAP Pipeline</a>
+                <a href="project-pipeline.html">Hybrid Ephys Recording Pipeline</a>
+                <a href="project-neuron.html">Hippocampal CCK Interneurons</a>
+                <a href="project-biosensor.html">EEG-Based Authentication</a>
+            </div>
+        </div>
         <a href="cv.html">CV</a>
         <a href="mailto:baraewlad@gmail.com">Contact</a>
         <a href="https://github.com/UladzislauBarayeu" target="_blank">GitHub</a>

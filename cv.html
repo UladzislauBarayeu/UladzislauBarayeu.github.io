@@ -50,22 +50,67 @@
             color: #60a5fa;
         }
 
-        .back-link {
-            display: inline-block;
-            margin: 2rem 0 0 2rem;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 10;
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 2rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-bottom: 1px solid var(--card-border);
         }
 
-        .back-link:hover {
-            color: var(--text-main);
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-left: 2rem;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--bg-color);
+            min-width: 280px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            right: 0;
+            top: 100%;
+            padding: 0.5rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .dropdown-content a {
+            color: var(--text-muted);
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            display: block;
+            margin-left: 0;
+            font-size: 0.9rem;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
 
         .cv-wrapper {
@@ -99,6 +144,17 @@
 
         .profile-section {
             text-align: center;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.2rem auto;
+            display: block;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
         }
 
         .profile-name {
@@ -317,9 +373,14 @@
                 position: relative;
                 top: 0;
             }
-            .back-link {
-                position: relative;
-                margin: 2rem 0 0 2rem;
+            nav {
+                padding: 1rem 2rem;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            nav a, .dropdown {
+                margin-left: 0;
             }
         }
     </style>
@@ -327,12 +388,28 @@
 
 <body>
 
-    <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
+    <nav>
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="#" style="margin-left: 0;">Selected Projects &#9662;</a>
+            <div class="dropdown-content">
+                <a href="project-umap.html">Neural Manifolds & UMAP Pipeline</a>
+                <a href="project-pipeline.html">Hybrid Ephys Recording Pipeline</a>
+                <a href="project-neuron.html">Hippocampal CCK Interneurons</a>
+                <a href="project-biosensor.html">EEG-Based Authentication</a>
+            </div>
+        </div>
+        <a href="cv.html">CV</a>
+        <a href="mailto:baraewlad@gmail.com">Contact</a>
+        <a href="https://github.com/UladzislauBarayeu" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/uladzislau-barayeu-984861241/" target="_blank">LinkedIn</a>
+    </nav>
 
     <div class="cv-wrapper">
         <!-- Sidebar -->
         <div class="sidebar glass-card">
             <div class="profile-section">
+                <img src="my_photo.png" alt="Uladzislau Barayeu" class="profile-photo">
                 <h1 class="profile-name">Uladzislau Barayeu</h1>
                 <p class="profile-title">PhD Researcher in Neuroscience<br>Electrophysiology & Neural Data Analysis</p>
                 <div class="contact-info">
